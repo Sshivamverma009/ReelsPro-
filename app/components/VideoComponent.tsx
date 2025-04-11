@@ -9,6 +9,7 @@ export default function VideoComponent({ video }: { video: IVideo }) {
   const deleteVideo = async (_id : mongoose.Types.ObjectId) => {
         try {
           const data = await apiClient.deleteVideo(_id);
+          console.log(data);
         } catch (error) {
           console.error("Error deleting video:", error);
         }
