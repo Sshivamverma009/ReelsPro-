@@ -1,19 +1,8 @@
 import { IKVideo } from "imagekitio-next";
 import Link from "next/link";
 import { IVideo } from "@/models/Video";
-import { apiClient } from "@/lib/api-client";
-import mongoose from "mongoose";
 
 export default function VideoComponent({ video }: { video: IVideo }) {
-
-  const deleteVideo = async (_id : mongoose.Types.ObjectId) => {
-        try {
-          const data = await apiClient.deleteVideo(_id);
-          console.log(data);
-        } catch (error) {
-          console.error("Error deleting video:", error);
-        }
-      };
 
   return (
     <div className="card bg-base-100 shadow hover:shadow-lg transition-all duration-300">
@@ -50,7 +39,6 @@ export default function VideoComponent({ video }: { video: IVideo }) {
           {video.description}
         </p>
       </div>
-      <button onClick={() => {deleteVideo(video._id!)}} className='py-2 px-4 rounded-lg bg-red-300' >Delete</button>
     </div>
   );
 }

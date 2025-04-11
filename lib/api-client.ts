@@ -1,5 +1,4 @@
 import { IVideo } from "@/models/Video";
-import mongoose from "mongoose";
 
 export type VideoFormData = Omit<IVideo, "_id">;
 
@@ -46,13 +45,6 @@ class ApiClient {
     return this.fetch<IVideo>("/videos", {
       method: "POST",
       body: videoData,
-    });
-  }
-
-  async deleteVideo(_id: mongoose.Types.ObjectId) {
-    return this.fetch<{ message: string }>("/videos", {
-      method: "DELETE",
-      body: { _id: _id.toString() },
     });
   }
   
