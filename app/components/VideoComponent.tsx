@@ -3,10 +3,8 @@ import Link from "next/link";
 import { IVideo } from "@/models/Video";
 import { apiClient } from "@/lib/api-client";
 import mongoose from "mongoose";
-import { useRouter } from "next/navigation";
 
 export default function VideoComponent({ video }: { video: IVideo }) {
-  const router = useRouter();
 
   const deleteVideo = async (_id : mongoose.Types.ObjectId) => {
         try {

@@ -95,6 +95,7 @@ export async function DELETE(req : NextRequest) {
       { status: 200 }
     );
   } catch (error) {
+    console.log("Error while deleting video",error);
     return NextResponse.json(
       { error: "Failed to delete video" },
       { status: 500 }
